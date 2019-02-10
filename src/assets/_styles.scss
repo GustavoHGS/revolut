@@ -1,0 +1,14 @@
+
+/* IMPORT VENDOR CSS */
+@import './flags/styles.css';
+
+/* IMPORT FONTS */
+@import './fonts/glober/stylesheet.css';
+
+/* IMPORT VARIABLES */
+@import 'variables.scss';
+
+
+/* IMPORT APP CSS */
+@import 'custom.scss';
+

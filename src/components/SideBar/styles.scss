@@ -1,0 +1,10 @@
+@import "assets/_variables.scss";
+
+.side-bar-container {
+  background-color: $white;
+  width: 6em;
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+  height: stretch;
+}

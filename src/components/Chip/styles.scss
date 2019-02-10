@@ -1,0 +1,16 @@
+@import 'assets/_variables.scss';
+
+.container {
+  height: fit-content;
+  background-color: $blue-dark;
+  font-family: GloberSemiBold;
+  font-size: 13px;
+  padding: 6px 8px 4px 8px;
+  border-radius: 12px;
+  color: $white;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  line-height: 1;
+  width: fit-content;
+}

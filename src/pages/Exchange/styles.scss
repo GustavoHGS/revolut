@@ -1,0 +1,38 @@
+@import 'assets/_variables.scss';
+
+.currency-input {
+  height: 3em;
+  width: 100px;
+  font-size: 18px;
+  padding: 0px 6px 0px 6px;
+  line-height: 4;
+  box-sizing: border-box;
+}
+
+.currency-row {
+  align-items: center;
+}
+
+.currency-select {
+  margin: 8px;
+  width: 150px;
+}
+
+.currency-select > div {
+  min-height: 3.3em;
+}
+
+.currency-prefix {
+  font-family: GloberSemiBold;
+  color: $gray-500;
+  margin-right: 8px;
+  font-size: 20px;
+  min-width: 1em;
+}
+
+.exchange-icon {
+  color: $blue;
+  font-size: 3em;
+  margin-left: 24px;
+  margin-right: 24px;
+}
