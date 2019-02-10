@@ -5,7 +5,8 @@ import Input from 'components/Input'
 import Select from 'components/Select'
 import { getCurrencies } from 'helpers'
 import CurrencyOption from 'components/Select/components/CurrencyOption'
-import Chip from '../../components/Chip'
+import Chip from 'components/Chip'
+import Button from 'components/Button'
 import './styles.scss'
 
 
@@ -15,12 +16,39 @@ export default class Exchange extends PureComponent {
     this.state = {
       fromValue: 0,
       fromCurrency: getCurrencies()[0],
+      toCurrency: getCurrencies()[1],
     }
   }
 
   setFromCurrency = (value) => {
-    this.setState({
+    const { fromCurrency, toCurrency } = this.state
+    if (value.currency === toCurrency.currency) {
+      return this.setState({
+        toCurrency: fromCurrency,
+      }, () => {
+        this.setState({
+          fromCurrency: value,
+        })
+      })
+    }
+    return this.setState({
       fromCurrency: value,
+    })
+  }
+
+  setToCurrency = (value) => {
+    const { fromCurrency, toCurrency } = this.state
+    if (value.currency === fromCurrency.currency) {
+      return this.setState({
+        fromCurrency: toCurrency,
+      }, () => {
+        this.setState({
+          toCurrency: value,
+        })
+      })
+    }
+    return this.setState({
+      toCurrency: value,
     })
   }
 
@@ -29,7 +57,7 @@ export default class Exchange extends PureComponent {
   )
 
   render() {
-    const { fromCurrency, fromValue } = this.state
+    const { fromCurrency, fromValue, toCurrency, toValue } = this.state
     return (
       <div>
         Exchange
@@ -44,6 +72,7 @@ export default class Exchange extends PureComponent {
                   <span className="currency-prefix">{get(fromCurrency, 'prefix', '')}</span>
                 )}
                 value={fromValue}
+                onChange={value => this.setState({ fromValue: value })}
               />
               <div style={{ marginLeft: 32 }}>
                 <Chip label="Balance: $10.00" />
@@ -55,10 +84,11 @@ export default class Exchange extends PureComponent {
               style={{ minHeight: 40 }}
               data={getCurrencies()}
               name="currency"
-              defaultValue={getCurrencies()[0]}
+              defaultValue={fromCurrency}
               isClearable={false}
               formatOptionLabel={this.renderOption}
               onChange={this.setFromCurrency}
+              value={fromCurrency}
             />
             <FaExchangeAlt className="exchange-icon" />
 
@@ -68,9 +98,10 @@ export default class Exchange extends PureComponent {
                 type="number"
                 label="I want to buy"
                 prefix={() => (
-                  <span className="currency-prefix">{get(fromCurrency, 'prefix', '')}</span>
+                  <span className="currency-prefix">{get(toCurrency, 'prefix', '')}</span>
                 )}
-                value={fromValue}
+                value={toValue}
+                onChange={value => this.setState({ toValue: value })}
               />
               <div style={{ marginLeft: 32 }}>
                 <Chip label="Balance: $10.00" />
@@ -82,11 +113,20 @@ export default class Exchange extends PureComponent {
               style={{ minHeight: 40 }}
               data={getCurrencies()}
               name="currency"
-              defaultValue={getCurrencies()[0]}
+              defaultValue={toCurrency}
               isClearable={false}
               formatOptionLabel={this.renderOption}
-              onChange={this.setFromCurrency}
+              onChange={this.setToCurrency}
+              value={toCurrency}
             />
+
+            <div style={{ marginLeft: 16 }}>
+              <Button
+                label="Exchange"
+                className="large"
+                disabled={!fromValue || !toValue}
+              />
+            </div>
           </div>
 
 

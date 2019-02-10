@@ -52,3 +52,11 @@ input::-webkit-inner-spin-button:focus {
   display: flex;
   flex-direction: column;
 }
+
+.large {
+  height: 3em !important;
+  box-sizing: border-box;
+  border-radius: 3px;
+  font-size: 18px;
+  padding: 0px 16px 0px 16px;
+}

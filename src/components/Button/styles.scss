@@ -1,0 +1,48 @@
+@import "assets/_variables.scss";
+
+.button {
+  border-radius: 5px;
+  min-width: 80px;
+  min-height: 30px;
+  color: $white;
+  font-family: GloberSemiBold;
+  border: none;
+  padding: 0px 8 0px 8;
+  box-shadow: 0 2px 10px 2px rgba(69, 65, 78, 0.08);
+}
+
+.button:hover {
+  cursor: pointer;
+}
+
+.primary {
+  background-color: $primary;
+  outline: none;
+}
+
+.primary:hover {
+  background-color: $blue-dark;
+}
+
+.primary:focus {
+  border: 2px solid $blue-dark;
+}
+
+
+.secondary {
+  background-color: $secondary;
+}
+
+.disabled {
+  cursor: not-allowed;
+  background-color: $gray-300;
+}
+
+.disabled:hover {
+  cursor: not-allowed;
+  background-color: $gray-300;
+}
+
+.disabled:focus {
+  border: none;
+}

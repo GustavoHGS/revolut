@@ -14,7 +14,7 @@ export default class CSelect extends Component {
 
   render() {
     const {
-      className, defaultValue, data, name, isClearable, components, style, formatOptionLabel,
+      className, defaultValue, data, name, isClearable, components, style, formatOptionLabel, value,
     } = this.props
     return (
       <div>
@@ -30,6 +30,7 @@ export default class CSelect extends Component {
           components={components}
           formatOptionLabel={formatOptionLabel}
           onChange={this.handleChange}
+          value={value}
         />
       </div>
     )
@@ -46,6 +47,7 @@ CSelect.propTypes = {
   style: PropTypes.object,
   formatOptionLabel: PropTypes.func,
   onChange: PropTypes.func,
+  value: PropTypes.any,
 }
 
 CSelect.defaultProps = {
@@ -58,4 +60,5 @@ CSelect.defaultProps = {
   style: null,
   formatOptionLabel: () => {},
   onChange: () => {},
+  value: {},
 }
