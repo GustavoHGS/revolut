@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react'
 import { FaExchangeAlt } from 'react-icons/fa'
+import { FiTrendingUp } from 'react-icons/fi'
 import get from 'lodash.get'
 import Input from 'components/Input'
 import Select from 'components/Select'
@@ -57,11 +58,13 @@ export default class Exchange extends PureComponent {
   )
 
   render() {
-    const { fromCurrency, fromValue, toCurrency, toValue } = this.state
+    const {
+      fromCurrency, fromValue, toCurrency, toValue,
+    } = this.state
     return (
       <div>
         Exchange
-        <div className="card" style={{ width: '70%' }}>
+        <div className="card" style={{ width: '75%' }}>
           <div className="row currency-row">
             <div className="col">
               <Input
@@ -90,7 +93,18 @@ export default class Exchange extends PureComponent {
               onChange={this.setFromCurrency}
               value={fromCurrency}
             />
-            <FaExchangeAlt className="exchange-icon" />
+            <div className="switch-container">
+              <Chip
+                content={() => (
+                  <span>
+                    <FiTrendingUp className="trendind-icon" />
+                    <span style={{ marginLeft: 8, fontSize: '1rem' }}>$1 = £1.3131</span>
+                  </span>
+                )}
+                primary
+              />
+              <FaExchangeAlt className="exchange-icon" />
+            </div>
 
             <div className="col">
               <Input

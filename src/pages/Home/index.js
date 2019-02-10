@@ -12,7 +12,7 @@ export default class Home extends PureComponent {
       <div>
         <div>Home</div>
         <Link to="/exchange" style={{ marginLeft: 16 }}>
-          <span>Ir para exchange</span>
+          <span>Go to exchange</span>
         </Link>
       </div>
     )
