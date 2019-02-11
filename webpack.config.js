@@ -1,18 +1,24 @@
 const webpack = require('webpack')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const Dotenv = require('dotenv-webpack')
 const path = require('path')
+require('babel-polyfill')
+
 
 const devMode = process.env.NODE_ENV !== 'production'
 
 module.exports = {
-  entry: './src/index.js',
+  entry: ['babel-polyfill', './src/index.js'],
   // resolve alias (Absolute paths)
   resolve: {
     alias: {
+      actions: path.resolve(__dirname, 'src/actions/'),
       pages: path.resolve(__dirname, 'src/pages/'),
       components: path.resolve(__dirname, 'src/components/'),
       assets: path.resolve(__dirname, 'src/assets/'),
       helpers: path.resolve(__dirname, 'src/helpers/'),
+      api: path.resolve(__dirname, 'src/api/'),
+      services: path.resolve(__dirname, 'src/services/'),
     },
     extensions: ['*', '.js', '.jsx'],
   },
@@ -64,6 +70,7 @@ module.exports = {
     filename: 'bundle.js',
   },
   plugins: [
+    new Dotenv(),
     new webpack.DefinePlugin({
       'process.env.BROWSER': true,
     }),
@@ -76,5 +83,6 @@ module.exports = {
   devServer: {
     contentBase: './public',
     hot: true,
+    historyApiFallback: true,
   },
 }

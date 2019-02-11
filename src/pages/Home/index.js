@@ -10,7 +10,7 @@ export default class Home extends PureComponent {
   render() {
     return (
       <div>
-        <div>Home</div>
+        <p className="page-title">Wallet</p>
         <Link to="/exchange" style={{ marginLeft: 16 }}>
           <span>Go to exchange</span>
         </Link>

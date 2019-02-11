@@ -1,3 +1,4 @@
+/* eslint react/forbid-prop-types: off */
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
@@ -44,7 +45,7 @@ Input.propTypes = {
   className: PropTypes.string,
   label: PropTypes.string,
   prefix: PropTypes.func,
-  value: PropTypes.string || PropTypes.number,
+  value: PropTypes.any,
 }
 
 Input.defaultProps = {
