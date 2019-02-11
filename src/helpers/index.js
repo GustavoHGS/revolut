@@ -4,10 +4,6 @@ export const getCurrencies = () => ([
     prefix: '$',
   },
   {
-    currency:'BRL',
-    prefix: 'R$',
-  },
-  {
     currency:'GBP',
     prefix: '£',
   },
@@ -15,5 +11,8 @@ export const getCurrencies = () => ([
     currency:'EUR',
     prefix: '€',
   },
-  
+  {
+    currency:'BRL',
+    prefix: 'R$',
+  },
 ])

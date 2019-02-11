@@ -5,20 +5,14 @@ import classNames from 'classnames'
 import './styles.scss'
 
 export default class Input extends Component {
-  state = {
-    innerValue: 0,
-  }
+  state = {}
 
   handleChange = (e) => {
     const { onChange } = this.props
-    this.setState({
-      innerValue: e.target.value,
-    })
-    onChange(e.target.value)
+    onChange(this.props.formatter(e.target.value))
   }
 
   render() {
-    const { innerValue } = this.state
     const {
       type, className, label, prefix, value,
     } = this.props
@@ -29,9 +23,10 @@ export default class Input extends Component {
           {prefix()}
           <input
             onChange={this.handleChange}
-            value={innerValue || value}
+            value={value}
             className={classNames('input', className)}
             type={type}
+            placeholder={this.props.placeholder}
           />
         </div>
       </div>
@@ -46,6 +41,8 @@ Input.propTypes = {
   label: PropTypes.string,
   prefix: PropTypes.func,
   value: PropTypes.any,
+  placeholder: PropTypes.any,
+  formatter: PropTypes.func,
 }
 
 Input.defaultProps = {
@@ -54,5 +51,7 @@ Input.defaultProps = {
   className: '',
   label: '',
   prefix: () => {},
-  value: 0,
+  value: '',
+  placeholder: '',
+  formatter: null,
 }
