@@ -2,6 +2,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Highcharts from 'highcharts'
+import cuid from 'cuid'
 import {
   HighchartsChart, Chart, withHighcharts, XAxis, YAxis, LineSeries, Tooltip, Legend,
 } from 'react-jsx-highcharts'
@@ -43,6 +44,7 @@ const LineChart = ({
                 <LineSeries
                   name={yLabel[index]}
                   data={item}
+                  key={cuid()}
                 />
               ))
               : null

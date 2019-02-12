@@ -15,7 +15,11 @@ import CurrencyOption from 'components/Select/components/CurrencyOption'
 import Chip from 'components/Chip'
 import Button from 'components/Button'
 import LineChart from './components/LineChart'
-import { startPollCurrencyTask, confirmExchange } from './actions'
+import {
+  startPollCurrencyTask,
+  confirmExchange,
+  stopPollCurrencyTask,
+} from './actions'
 import { getCurrencyBalance, getLastRates } from './selectors'
 import './styles.scss'
 
@@ -74,6 +78,10 @@ class Exchange extends PureComponent {
         toBalance,
       })
     }
+  }
+
+  componentWillUnmount() {
+    this.props.stopPollCurrencyTask()
   }
 
   handleShowConfirmExchange = () => {
@@ -336,6 +344,9 @@ const mapActionsToProps = dispatch => ({
   confirmExchange(baseCurrency, amountToSell, tradeCurrency, amountToBuy) {
     dispatch(confirmExchange(baseCurrency, amountToSell, tradeCurrency, amountToBuy))
   },
+  stopPollCurrencyTask() {
+    dispatch(stopPollCurrencyTask())
+  },
 })
 
 export default connect(mapStateToProps, mapActionsToProps)(Exchange)
@@ -345,6 +356,7 @@ Exchange.propTypes = {
   startPollCurrencyTask: PropTypes.func,
   balances: PropTypes.object,
   confirmExchange: PropTypes.func,
+  stopPollCurrencyTask: PropTypes.func,
 }
 
 Exchange.defaultProps = {
@@ -352,4 +364,5 @@ Exchange.defaultProps = {
   startPollCurrencyTask: () => {},
   balances: {},
   confirmExchange: () => {},
+  stopPollCurrencyTask: () => {},
 }

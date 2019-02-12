@@ -5,6 +5,7 @@ import { message } from 'antd'
 import { toDouble } from 'helpers/currency'
 import * as walletActionTypes from 'pages/Wallet/actionTypes'
 import * as types from './actionTypes'
+import * as globalTypes from 'actions/actionTypes'
 import ExchangeServices from './services'
 
 const pollInterval = 10000
@@ -12,9 +13,11 @@ let timer = null
 
 export const fetchCurrencyRate = (baseCurrency, tradeCurrency) => (
   (dispatch, state) => {
+    dispatch(createAction(globalTypes.IS_APPLICATION_LOADING)(true))
     ExchangeServices
       .fetchCurrencyRate(baseCurrency, tradeCurrency)
       .then((result) => {
+        dispatch(createAction(globalTypes.IS_APPLICATION_LOADING)(false))
         const rates = { ...get(state(), `exchange.lastRates[${baseCurrency}].rates`, {}) }
         const updateTime = moment().format('YYYY/MM/DD').toString()
           .concat(' at ')
@@ -35,20 +38,6 @@ export const fetchCurrencyRate = (baseCurrency, tradeCurrency) => (
   }
 )
 
-export const fetchCurrencyHistory = (baseCurrency, tradeCurrency) => (
-  (dispatch) => {
-    ExchangeServices
-      .fetchCurrencyHistory(baseCurrency, tradeCurrency)
-      .then((result) => {
-        console.log('result history ', result)
-        dispatch(createAction(types.FETCH_CURRENCY_HISTORY_RATE)(result))
-      })
-      .catch((err) => {
-        console.log(err)
-      })
-  }
-)
-
 export const startPollCurrencyTask = (baseCurrency, tradeCurrency) => (
   (dispatch) => {
     clearInterval(timer)
@@ -56,6 +45,12 @@ export const startPollCurrencyTask = (baseCurrency, tradeCurrency) => (
       () => dispatch(fetchCurrencyRate(baseCurrency, tradeCurrency)), pollInterval,
     )
     dispatch(fetchCurrencyRate(baseCurrency, tradeCurrency))
+  }
+)
+
+export const stopPollCurrencyTask = () => (
+  () => {
+    clearInterval(timer)
   }
 )
 

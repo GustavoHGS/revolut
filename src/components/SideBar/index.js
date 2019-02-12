@@ -4,6 +4,8 @@ import { FaExchangeAlt, FaChartLine } from 'react-icons/fa'
 import { NavLink, withRouter } from 'react-router-dom'
 import './styles.scss'
 
+const logo = require('assets/images/logo_square.png')
+
 const SideBar = () => (
   <div className="side-bar-container">
     <NavLink to="/" exact className="button-container">
@@ -19,6 +21,7 @@ const SideBar = () => (
       <span className="button-text">Analytics</span>
     </NavLink>
 
+    <img src={logo} alt="revolut" className="logo" />
   </div>
 )
 
