@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
+import cuid from 'cuid'
 import { getCurrencies } from 'helpers'
 import './styles.scss'
 import { currencyFormatter } from 'helpers/currency'
@@ -31,7 +32,7 @@ class Wallet extends PureComponent {
         <div className="row">
           {
             getCurrencies().map(fx => (
-              <div className="card balance-card">
+              <div className="card balance-card" key={cuid()}>
                 <span>{this.renderFlag(fx.currency)}</span>
                 <span className="balance-currency-label">
                   {`${fx.prefix} ${currencyFormatter(balance[fx.currency])}`}
