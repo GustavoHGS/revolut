@@ -8,7 +8,7 @@ const Button = ({
   onClick, buttonType, secondary, className, disabled, label,
 }) => (
   <button
-    onClick={onClick}
+    onClick={disabled ? null : onClick}
     type={buttonType}
     className={
       classNames('button',

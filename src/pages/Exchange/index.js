@@ -1,5 +1,5 @@
 /* eslint react/forbid-prop-types: off */
-import React, { PureComponent } from 'react'
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
@@ -25,10 +25,11 @@ import './styles.scss'
 
 const { confirm } = Modal
 
-class Exchange extends PureComponent {
+class Exchange extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      fakeHistoricalData: [[1.0823, 1.113, 1.1002, 1.0990, 1.1011, 0.9891, 1.0212, 1.3102]],
       fromValue: '0',
       toValue: '0',
       fromCurrency: getCurrencies()[0],
@@ -321,7 +322,7 @@ class Exchange extends PureComponent {
           <div style={{ marginTop: 24 }}>
             <LineChart
               yLabel={['FX History (Fake sample)']}
-              data={[[1.0823, 1.113, 1.1002, 1.0990, 1.1011, 0.9891, 1.0212, 1.3102]]}
+              data={this.state.fakeHistoricalData}
               rendertitle={this.renderChartTitle}
             />
           </div>
