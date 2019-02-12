@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button Component matches the button snapshot 1`] = `
+<button
+  className="button primary"
+  onClick={[Function]}
+  type="button"
+>
+  
+</button>
+`;

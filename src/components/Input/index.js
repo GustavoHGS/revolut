@@ -27,6 +27,7 @@ export default class Input extends Component {
             className={classNames('input', className)}
             type={type}
             placeholder={this.props.placeholder}
+            maxLength={this.props.maxLength}
           />
         </div>
       </div>
@@ -44,6 +45,7 @@ Input.propTypes = {
   placeholder: PropTypes.any,
   formatter: PropTypes.func,
   labelStyle: PropTypes.object,
+  maxLength: PropTypes.any,
 }
 
 Input.defaultProps = {
@@ -56,4 +58,5 @@ Input.defaultProps = {
   placeholder: '',
   formatter: null,
   labelStyle: null,
+  maxLength: null,
 }

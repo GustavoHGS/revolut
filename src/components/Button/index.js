@@ -1,35 +1,27 @@
 /* eslint react/forbid-prop-types: off */
-import React, { Component } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import './styles.scss'
 
-export default class Button extends Component {
-  state = {}
+const Button = ({
+  onClick, buttonType, secondary, className, disabled, label,
+}) => (
+  <button
+    onClick={onClick}
+    type={buttonType}
+    className={
+      classNames('button',
+        secondary ? 'secondary' : 'primary',
+        className,
+        disabled ? 'disabled' : '')
+    }
+  >
+    {label}
+  </button>
+)
 
-  handleClick = () => {
-    const { onClick } = this.props
-    onClick()
-  }
-
-  render() {
-    const { label, buttonType, secondary, className, disabled } = this.props
-    return (
-      <button
-        onClick={this.handleClick}
-        type={buttonType}
-        className={
-          classNames('button',
-            secondary ? 'secondary' : 'primary',
-            className,
-            disabled ? 'disabled' : '')
-        }
-      >
-        {label}
-      </button>
-    )
-  }
-}
+export default Button
 
 Button.propTypes = {
   onClick: PropTypes.func,

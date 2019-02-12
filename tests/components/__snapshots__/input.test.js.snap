@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input Component matches the input snapshot 1`] = `
+<div
+  className="input-container"
+>
+  <span
+    className="input-label"
+    style={null}
+  >
+    
+  </span>
+  <div
+    className="row"
+    style={
+      Object {
+        "alignItems": "center",
+      }
+    }
+  >
+    <input
+      className="input"
+      maxLength={null}
+      onChange={[Function]}
+      placeholder=""
+      type="text"
+      value=""
+    />
+  </div>
+</div>
+`;

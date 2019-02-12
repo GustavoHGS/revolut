@@ -223,6 +223,7 @@ class Exchange extends PureComponent {
                 placeholder={0}
                 formatter={currencyFormatter}
                 value={fromValue}
+                maxLength={12} // max exchange to 9,999,999.99
               />
               <div className="chip-balance-container">
                 <Chip label={`Balance: ${fromCurrency.prefix} ${fromBalance}`} />
@@ -284,6 +285,7 @@ class Exchange extends PureComponent {
                 placeholder={0}
                 formatter={currencyFormatter}
                 value={toValue}
+                maxLength={12} // max exchange to 9,999,999.99
               />
               <div className="chip-balance-container">
                 <Chip label={`Balance: ${toCurrency.prefix} ${toBalance}`} />

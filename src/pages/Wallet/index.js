@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import { getCurrencies } from 'helpers'
 import './styles.scss'
+import { currencyFormatter } from 'helpers/currency'
 
 class Wallet extends PureComponent {
   constructor(props) {
@@ -30,10 +31,10 @@ class Wallet extends PureComponent {
         <div className="row">
           {
             getCurrencies().map(fx => (
-              <div className="card" style={{ margin: 12 }}>
+              <div className="card balance-card">
                 <span>{this.renderFlag(fx.currency)}</span>
                 <span className="balance-currency-label">
-                  {`${fx.prefix} ${balance[fx.currency]}`}
+                  {`${fx.prefix} ${currencyFormatter(balance[fx.currency])}`}
                 </span>
               </div>
             ))

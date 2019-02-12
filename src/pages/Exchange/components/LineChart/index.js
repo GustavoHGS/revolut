@@ -61,7 +61,7 @@ LineChart.propTypes = {
   legend: PropTypes.bool,
   title: PropTypes.string,
   xLabel: PropTypes.string,
-  yLabel: PropTypes.string,
+  yLabel: PropTypes.any,
   data: PropTypes.array,
   rendertitle: PropTypes.func,
 }
