@@ -1,4 +1,13 @@
-# revolut
+# Revolut Web App
 Revolut web app React challenge
 
-Work in progress...
+#run
+npm start
+
+#test
+npm test
+
+#Author
+Gustavo Garcia
+-
+gustavohgs13@gmail.com
