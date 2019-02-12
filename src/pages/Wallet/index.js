@@ -35,7 +35,7 @@ class Wallet extends PureComponent {
               <div className="card balance-card" key={cuid()}>
                 <span>{this.renderFlag(fx.currency)}</span>
                 <span className="balance-currency-label">
-                  {`${fx.prefix} ${currencyFormatter(balance[fx.currency])}`}
+                  {`${fx.prefix} ${currencyFormatter(balance[fx.currency].toFixed(2))}`}
                 </span>
               </div>
             ))
