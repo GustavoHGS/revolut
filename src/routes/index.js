@@ -1,10 +1,10 @@
-import Home from 'pages/Home'
+import Wallet from 'pages/Wallet'
 import Exchange from 'pages/Exchange'
 
 const routes = [
   {
     path: '/',
-    component: Home,
+    component: Wallet,
     exact: true,
   },
   {

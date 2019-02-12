@@ -14,11 +14,11 @@ export default class Input extends Component {
 
   render() {
     const {
-      type, className, label, prefix, value,
+      type, className, label, prefix, value, labelStyle,
     } = this.props
     return (
       <div className="input-container">
-        <span className="input-label">{label}</span>
+        <span className="input-label" style={labelStyle}>{label}</span>
         <div className="row" style={{ alignItems: 'center' }}>
           {prefix()}
           <input
@@ -43,6 +43,7 @@ Input.propTypes = {
   value: PropTypes.any,
   placeholder: PropTypes.any,
   formatter: PropTypes.func,
+  labelStyle: PropTypes.object,
 }
 
 Input.defaultProps = {
@@ -54,4 +55,5 @@ Input.defaultProps = {
   value: '',
   placeholder: '',
   formatter: null,
+  labelStyle: null,
 }

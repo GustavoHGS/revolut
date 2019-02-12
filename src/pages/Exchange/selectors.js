@@ -5,6 +5,11 @@ export const getLastRates = createSelector(
   lastRates => lastRates,
 )
 
+export const getCurrencyBalance = createSelector(
+  state => state.wallet.balance,
+  balance => balance,
+)
+
 export const getExchangeHistory = createSelector(
   state => state.exchange.history,
   history => history,

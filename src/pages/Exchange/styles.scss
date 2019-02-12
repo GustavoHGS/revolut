@@ -46,3 +46,35 @@
   flex-direction: column;
   align-items: center;
 }
+
+.time-label {
+  font-family: GloberSemiBold;
+  font-size: 13px;
+  color: $gray-400;
+}
+
+.time-data {
+  font-family: GloberSemiBold;
+  font-size: 13px;
+  color: $gray-600;
+}
+
+.chip-balance-container {
+  display: flex;
+  flex-direction: row;
+  left: 2rem;
+  position: relative;
+}
+
+.chip-balance-amount {
+  left: 80%;
+  top: 0.2em;
+  position: absolute;
+  width: fit-content;
+  font-family: GloberSemiBold;
+  font-size: 16px;
+}
+.balance-error {
+  font-family: GloberBold;
+  color: $red;
+}

@@ -11,7 +11,9 @@ export default (state = initialState, { type, payload }) => {
         ...state,
         lastRates: {
           ...state.lastRates,
-          [payload.base]: { ...payload },
+          [payload.base]: {
+            ...payload,
+          },
         },
       }
     default:

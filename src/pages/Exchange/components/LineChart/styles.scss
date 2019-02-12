@@ -1,0 +1,42 @@
+@import "assets/_variables.scss";
+
+.chart-card-container {
+  display: flex;
+  flex-direction: column;
+  background-color: $white;
+  border-radius: 5px;
+  border: 1PX solid $gray-200;
+  transition: all 0.4s ease-in-out 0s;
+  position: relative;
+  padding: 16px;
+  width: stretch;
+  height: 300px;
+  margin: 16px;
+  margin-bottom: 24px;
+}
+
+.chart-container {
+  display: flex;
+  height: 75%;
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  right: 8px;
+}
+
+.inner-chart-container {
+  height: 100%;
+  width: 100%;
+}
+
+.chart-title {
+  font-family: GloberBold;
+  color: #464D69;
+  font-size: 1.4rem;
+}
+
+.chart-subtitle {
+  font-family: GloberRegular;
+  color: $gray-400;
+  font-size: 13px;
+}
